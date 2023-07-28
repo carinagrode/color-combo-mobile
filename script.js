@@ -19,12 +19,14 @@ function createGrid(gridColor, paintbrushColor) {
 
         box.setAttribute('class', 'pixel');
     
-        box.addEventListener('mouseenter', () => {
+        box.addEventListener('touchstart', (event) => {
+            event.preventDefault();
             box.style.backgroundColor = paintbrushColor;
             checkGameEnd(paintbrushColor);
         });
 
-        box.addEventListener('mouseleave', () => {
+        box.addEventListener('touchmove', (event) => {
+            event.preventDefault();
             box.style.backgroundColor = paintbrushColor;
         });
     }
